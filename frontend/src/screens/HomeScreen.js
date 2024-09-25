@@ -80,19 +80,20 @@ const HomeScreen = ({ match }) => {
         rel='noopener noreferrer'
       >
         <FaWhatsapp size={40} color='' />
+        <span className='whatsapp_text'>Need Help? Chat with us.</span>
       </a>
 
       {/* Custom WhatsApp button styling */}
       <style jsx>{`
         .whatsapp_float {
           position: fixed;
-          width: 60px;
+          width: auto;
           height: 60px;
           bottom: 40px;
           right: 40px;
           background-color: #25d366;
           color: #fff;
-          border-radius: 50px;
+          border-radius: 30px;
           text-align: center;
           font-size: 30px;
           box-shadow: 2px 2px 3px #999;
@@ -100,6 +101,12 @@ const HomeScreen = ({ match }) => {
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 0 10px;
+        }
+
+        .whatsapp_text {
+          font-size: 16px;
+          margin-left: 10px;
         }
       `}</style>
     </>
