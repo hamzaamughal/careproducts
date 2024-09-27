@@ -9,8 +9,8 @@ import Paginate from '../components/Paginate'
 import ProductCarousel from '../components/ProductCarousel'
 import Meta from '../components/Meta'
 import { listProducts } from '../actions/productActions'
-import ReactPlayer from 'react-player' // Import for video player
-import { FaWhatsapp } from 'react-icons/fa' // Import WhatsApp icon
+import ReactPlayer from 'react-player'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword
@@ -21,6 +21,8 @@ const HomeScreen = ({ match }) => {
 
   const productList = useSelector((state) => state.productList)
   const { loading, error, products, page, pages } = productList
+
+  console.log(products, 'prod')
 
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber))
@@ -45,7 +47,7 @@ const HomeScreen = ({ match }) => {
         <>
           <Row>
             {products.map((product) => (
-              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+              <Col key={product._id} xs={6} sm={6} md={6} lg={4} xl={3}>
                 <Product product={product} />
               </Col>
             ))}
@@ -74,7 +76,7 @@ const HomeScreen = ({ match }) => {
 
       {/* Custom WhatsApp Button */}
       <a
-        href='https://wa.me/923326323778' // Replace with your WhatsApp number
+        href='https://wa.me/923326323778'
         className='whatsapp_float'
         target='_blank'
         rel='noopener noreferrer'
