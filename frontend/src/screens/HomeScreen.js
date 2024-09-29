@@ -1,32 +1,32 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col } from 'react-bootstrap'
-import Product from '../components/Product'
-import Message from '../components/Message'
-import Loader from '../components/Loader'
-import Paginate from '../components/Paginate'
-import ProductCarousel from '../components/ProductCarousel'
-import Meta from '../components/Meta'
-import { listProducts } from '../actions/productActions'
-import ReactPlayer from 'react-player'
-import { FaWhatsapp } from 'react-icons/fa'
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Row, Col } from 'react-bootstrap';
+import Product from '../components/Product';
+import Message from '../components/Message';
+import Loader from '../components/Loader';
+import Paginate from '../components/Paginate';
+import ProductCarousel from '../components/ProductCarousel';
+import Meta from '../components/Meta';
+import { listProducts } from '../actions/productActions';
+import ReactPlayer from 'react-player';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const HomeScreen = ({ match }) => {
-  const keyword = match.params.keyword
+  const keyword = match.params.keyword;
 
-  const pageNumber = match.params.pageNumber || 1
+  const pageNumber = match.params.pageNumber || 1;
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const productList = useSelector((state) => state.productList)
-  const { loading, error, products, page, pages } = productList
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products, page, pages } = productList;
 
-  console.log(products, 'prod')
+  console.log(products, 'prod');
 
   useEffect(() => {
-    dispatch(listProducts(keyword, pageNumber))
-  }, [dispatch, keyword, pageNumber])
+    dispatch(listProducts(keyword, pageNumber));
+  }, [dispatch, keyword, pageNumber]);
 
   return (
     <>
@@ -34,15 +34,15 @@ const HomeScreen = ({ match }) => {
       {!keyword ? (
         <ProductCarousel />
       ) : (
-        <Link to='/' className='btn btn-light'>
+        <Link to="/" className="btn btn-light">
           Go Back
         </Link>
       )}
-      <h1>Latest Products</h1>
+      <h4>Latest Products</h4>
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : (
         <>
           <Row>
@@ -61,28 +61,22 @@ const HomeScreen = ({ match }) => {
       )}
 
       {/* Section to add demo videos */}
-      <h2>Product Demo Videos</h2>
+      <h4>Product Demo Videos</h4>
       <Row>
         <Col sm={12} md={6} lg={4} xl={3}>
-          <ReactPlayer url='/videos/videoone.mp4' controls width='100%' />
-        </Col>
-        <Col sm={12} md={6} lg={4} xl={3}>
-          <ReactPlayer url='/videos/videotwo.mp4' controls width='100%' />
-        </Col>
-        <Col sm={12} md={6} lg={4} xl={3}>
-          <ReactPlayer url='/videos/videothree.mp4' controls width='100%' />
+          <ReactPlayer url="/videos/videoone.mp4" controls width="100%" />
         </Col>
       </Row>
 
       {/* Custom WhatsApp Button */}
       <a
-        href='https://wa.me/923326323778'
-        className='whatsapp_float'
-        target='_blank'
-        rel='noopener noreferrer'
+        href="https://wa.me/923326323778"
+        className="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <FaWhatsapp size={40} color='' />
-        <span className='whatsapp_text'>Need Help? Chat with us.</span>
+        <FaWhatsapp size={40} color="" />
+        <span className="whatsapp_text">Need Help? Chat with us.</span>
       </a>
 
       {/* Custom WhatsApp button styling */}
@@ -110,9 +104,16 @@ const HomeScreen = ({ match }) => {
           font-size: 16px;
           margin-left: 10px;
         }
+
+        /* Hide the text on 390x844 resolution */
+        @media (max-width: 590px) and (max-height: 844px) {
+          .whatsapp_text {
+            display: none;
+          }
+        }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

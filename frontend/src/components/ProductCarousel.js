@@ -9,8 +9,11 @@ import { listTopProducts } from '../actions/productActions'
 const ProductCarousel = () => {
   const dispatch = useDispatch()
 
-  const productTopRated = useSelector((state) => state.productTopRated)
-  const { loading, error, products } = productTopRated
+  // const productTopRated = useSelector((state) => state.productTopRated)
+  // const { loading, error, products } = productTopRated
+
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products, page, pages } = productList;
 
   useEffect(() => {
     dispatch(listTopProducts())
