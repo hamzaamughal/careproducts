@@ -59,7 +59,6 @@ const Product = ({ product }) => {
         .price-text {
           white-space: nowrap; /* Ensure single-line display */
           overflow: hidden;
-          text-overflow: ellipsis;
         }
       `}</style>
     </Card>
