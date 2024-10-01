@@ -118,8 +118,8 @@ const Header = () => {
           }
 
           .logo {
-            width: 100px;
-            height: 70px;
+            width: 140px;
+            height: 74px;
           }
 
           /* Show hamburger menu on small screens */
