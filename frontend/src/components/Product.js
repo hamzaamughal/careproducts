@@ -31,17 +31,37 @@ const Product = ({ product }) => {
 
       {/* CSS to handle small screen layouts */}
       <style jsx>{`
-        @media screen and (max-width: 430px) {
+        /* General styling for larger screens */
+        .product-item {
+          padding: 12px;
+        }
+
+        .product-image {
+          width: 100%; /* Ensure the image takes full width of the card */
+          height: auto; /* Keep the aspect ratio */
+          display: block;
+          object-fit: cover; /* Ensure the image covers the full space */
+        }
+
+        .rating-text,
+        .price-text {
+          white-space: nowrap; /* Ensure single-line display */
+          overflow: hidden;
+        }
+
+        /* Styles for smaller resolutions like below 500px */
+        @media screen and (max-width: 500px) {
           .product-item {
             font-size: 11px; /* Reduce the font size for small screens */
-            display: block;
             padding: 10px; /* Reduce padding */
+            width: 100%; /* Ensure the card takes full width */
           }
 
           .product-image {
-            max-width: 80px; /* Smaller image size */
-            height: auto;
-            margin: 0 auto; /* Center the image */
+            max-width: 100%; /* Ensure the image still takes the full width */
+            height: auto; /* Keep aspect ratio */
+            object-fit: cover; /* Ensure no space around the image */
+            margin: 0; /* Remove any margin */
           }
 
           .product-title {
@@ -60,21 +80,6 @@ const Product = ({ product }) => {
             overflow: hidden; /* Hide overflow if the text is too long */
             text-overflow: ellipsis; /* Add ellipsis if overflow */
           }
-
-          .product-item img {
-            max-width: 100px; /* Smaller image size */
-          }
-        }
-
-        /* General styling for larger screens */
-        .product-item {
-          padding: 12px;
-        }
-
-        .rating-text,
-        .price-text {
-          white-space: nowrap; /* Ensure single-line display */
-          overflow: hidden;
         }
       `}</style>
     </Card>

@@ -81,13 +81,6 @@ const HomeScreen = ({ match }) => {
       <div className="best-items mt-4">
         <h4>Best Items</h4>
         <p>
-          Discover our best-selling products! Tried and tested by countless skincare enthusiasts, these best-sellers promise radiant, healthy-looking skin with every use.
-        </p>
-      </div>
-
-      <div className="best-items mt-4">
-        <h4>Best Items</h4>
-        <p>
           Discover our best-selling products! Tried and tested by countless skincare enthusiasts, these best-sellers promise radiant, healthy-looking skin with every use.
         </p>
 
