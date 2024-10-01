@@ -85,6 +85,22 @@ const HomeScreen = ({ match }) => {
         </p>
       </div>
 
+      <div className="best-items mt-4">
+        <h4>Best Items</h4>
+        <p>
+          Discover our best-selling products! Tried and tested by countless skincare enthusiasts, these best-sellers promise radiant, healthy-looking skin with every use.
+        </p>
+
+        {/* Key Benefits Section */}
+        <h5 className="mt-3">Key Benefits:</h5>
+        <ul className="key-benefits">
+          <li>Helps to remove dullness & darkness</li>
+          <li>Brightens and lightens complexion</li>
+          <li>Reduces the production of melanin</li>
+          <li>Removes tan and evens skin tone</li>
+          <li>Moisturizes and hydrates your skin</li>
+        </ul>
+      </div>
       {/* Section to add demo videos in a carousel */}
       <h4 className="mt-4 mb-4">Product Demo Videos</h4>
       <Carousel
@@ -188,6 +204,18 @@ const HomeScreen = ({ match }) => {
             padding-left: 20px;
             padding-right: 20px;
           }
+        }
+        
+        .key-benefits {
+          list-style-type: disc;
+          margin-left: 20px;
+          text-align: left;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+
+        .key-benefits li {
+          margin-bottom: 10px;
         }
       `}</style>
     </>

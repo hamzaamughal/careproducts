@@ -27,33 +27,39 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <div className="mobile-header">
-            {/* Search Icon or Search Box */}
-            <div className="search-icon">
-              {!showSearch ? (
-                <FaSearch size={20} onClick={toggleSearch} />
-              ) : (
-                <Route
-                  render={({ history }) => (
-                    <SearchBox history={history} closeSearch={toggleSearch} />
-                  )}
-                />
-              )}
-            </div>
+            {/* Hamburger Menu for small screens */}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="hamburger-menu" />
 
             {/* Logo in Center */}
             <LinkContainer to="/" className="logo-center">
               <Navbar.Brand>
-                <img src='/images/logo.jpg' alt='Logo' className="logo" />
+                <img src="/images/logo.png" alt="Logo" className="logo" />
               </Navbar.Brand>
             </LinkContainer>
 
-            {/* Cart Icon */}
-            <div className="cart-icon">
-              <LinkContainer to="/cart">
-                <Nav.Link>
-                  <FaShoppingCart size={20} /> Cart
-                </Nav.Link>
-              </LinkContainer>
+            {/* Search and Cart Icons on the right */}
+            <div className="right-icons">
+              {/* Search Icon or Search Box */}
+              <div className="search-icon">
+                {!showSearch ? (
+                  <FaSearch size={20} onClick={toggleSearch} />
+                ) : (
+                  <Route
+                    render={({ history }) => (
+                      <SearchBox history={history} closeSearch={toggleSearch} />
+                    )}
+                  />
+                )}
+              </div>
+
+              {/* Cart Icon */}
+              <div className="cart-icon">
+                <LinkContainer to="/cart">
+                  <Nav.Link>
+                    <FaShoppingCart size={20} /> Cart
+                  </Nav.Link>
+                </LinkContainer>
+              </div>
             </div>
           </div>
 
@@ -104,26 +110,25 @@ const Header = () => {
           .logo-center {
             flex-grow: 1;
             text-align: center;
-            font-size: 20px;
           }
 
-          .search-icon,
-          .cart-icon {
+          .right-icons {
             display: flex;
             align-items: center;
           }
-          .logo{
+
+          .logo {
             width: 100px;
             height: 70px;
-            margin-left: 30px;
           }
 
-          /* Hide hamburger menu on small screens */
-          @media (max-width: 390px) {
-            .navbar-toggler {
-              display: none;
-            }
+          /* Show hamburger menu on small screens */
+          .hamburger-menu {
+            margin-right: auto; /* Align to the left */
+          }
 
+          /* Adjustments for smaller screens (below 450px) */
+          @media (max-width: 450px) {
             .logo-center {
               font-size: 18px;
             }
@@ -135,6 +140,24 @@ const Header = () => {
 
             .fas {
               font-size: 18px;
+            }
+
+            .search-icon,
+            .cart-icon {
+              margin-left: 10px; /* Adds spacing between search and cart icons */
+            }
+
+            .hamburger-menu {
+              display: block;
+            }
+
+            .logo {
+              margin: 0 auto;
+              text-align: center;
+            }
+
+            .right-icons {
+              justify-content: flex-end; /* Align search and cart to the right */
             }
           }
         `}</style>
