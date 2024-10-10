@@ -40,7 +40,7 @@ const Footer = () => {
             </p>
 
             <p className="footer-address">
-              Address: Suit # 101 Khan Business Tower, Walton Road, Lahore
+              Address: Khan Business Tower, Walton Road, Lahore
               <br />
               Email us at: <a href="mailto:dewdermint@gmail.com">dewdermint@gmail.com</a>
               <br />
